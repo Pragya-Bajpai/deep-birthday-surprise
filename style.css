@@ -1,0 +1,495 @@
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#170d17;color:#fff5f4;font-family:"DM Sans",sans-serif;overflow-x:hidden} :root{--wine:#4b1834;--rose:#f19ab0;--blush:#f9d7d9;--cream:#fff1e9;--muted:#c7aeb9;--gold:#d9b779}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+.ambient{position:fixed;width:420px;height:420px;border-radius:50%;filter:blur(120px);opacity:.16;pointer-events:none;z-index:-1}.ambient-a{background:#b52e67;top:5%;left:-230px}.ambient-b{background:#7c3159;right:-250px;top:50%}
+.nav{height:76px;padding:0 7vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12;position:absolute;z-index:5;width:100%}.brand{font-size:15px;letter-spacing:3px;color:#fff;text-decoration:none;font-weight:700}.brand span,.nav-link{color:var(--rose)}.nav-note{font-size:10px;letter-spacing:2px;color:#bba4b1;text-transform:uppercase}.nav-link{font-size:11px;text-decoration:none;letter-spacing:1px}
+.hero{min-height:790px;position:relative;display:grid;place-items:center;text-align:center;overflow:hidden;background:radial-gradient(ellipse at 50% 45%,#54213e 0%,#291326 42%,#170d17 78%);padding:130px 20px 75px}.hero-content{position:relative;z-index:2}.tiny-label,.section-tag{font-size:9px;letter-spacing:3px;color:#dba7b9}.tiny-label span{display:inline-block;width:28px;height:1px;background:#a66a82;vertical-align:middle;margin:0 10px}.hero-kicker,.script{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--rose);font-size:27px;margin:30px 0 4px}.hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(72px,12vw,145px);line-height:.78;letter-spacing:-4px;font-weight:500;margin:22px 0 30px}.hero h1 em,.section-heading h2 em,.letter-intro h2 em,.promise-card h2 em,.final-section h2 em{color:var(--rose);font-weight:500}.hero-heart{font-family:serif;color:#e97d9e;font-size:30px;vertical-align:top;margin-left:15px}.hero-copy{color:#d1bac5;font-family:"Cormorant Garamond",serif;font-size:23px;line-height:1.4;margin:0 0 35px}.main-cta{display:inline-flex;align-items:center;gap:30px;background:var(--rose);color:#381426;text-decoration:none;border:0;padding:16px 24px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;cursor:pointer;transition:.3s}.main-cta:hover{background:#ffe0e6;transform:translateY(-3px);box-shadow:0 12px 35px #e97d9e30}.main-cta span{font-size:18px}.hero-bottom{font-size:8px;letter-spacing:3px;color:#98778a;margin-top:75px}.hero-bottom b{color:var(--rose);margin:0 12px}.hero-orbit{position:absolute;border:1px solid #e7a4bd20;border-radius:50%;width:570px;height:570px;left:50%;top:50%;transform:translate(-50%,-50%)}.orbit-two{width:720px;height:720px;border-color:#e7a4bd10}.side-note{position:absolute;right:28px;top:50%;writing-mode:vertical-rl;font-size:8px;letter-spacing:3px;color:#916c80}
+.section-pad{padding:115px max(7vw,24px)}.section-tag{max-width:1100px;margin:0 auto 50px;color:#b87d96}.letter-section{background:#211321}.letter-layout{max-width:1050px;margin:auto;display:grid;grid-template-columns:1fr 1.15fr;align-items:center;gap:8vw}.letter-intro .script{margin:0 0 10px}.letter-intro h2,.section-heading h2,.final-section h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(48px,7vw,82px);line-height:.9;margin:0 0 22px}.muted{color:#bba6b2;font-size:12px;line-height:1.9}.seal{width:52px;height:52px;border:1px solid #b67a93;border-radius:50%;display:grid;place-items:center;margin-top:42px;font-family:"Cormorant Garamond",serif;font-size:22px;color:#f2c3d0;position:relative}.seal span{font-size:11px;position:absolute;right:-6px;top:-4px;color:#e78da9}
+.envelope{height:310px;width:min(100%,470px);border:0;background:transparent;position:relative;cursor:pointer;margin:auto;perspective:1000px}.env-back{position:absolute;inset:45px 0 0;background:#7d3c5b;box-shadow:0 25px 60px #0005}.letter-paper{position:absolute;z-index:1;left:9%;right:9%;top:12px;height:250px;background:#fff1e9;color:#5a263e;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;transition:transform .8s;box-shadow:0 5px 25px #0002}.paper-small{font-size:9px;letter-spacing:3px}.paper-title{font-family:"Cormorant Garamond",serif;font-size:42px;line-height:.9}.paper-hint{font-size:9px;color:#a15e7b;letter-spacing:1px}.env-front{position:absolute;z-index:2;bottom:0;left:0;width:0;height:0;border-left:235px solid #a65375;border-right:235px solid #914466;border-top:160px solid transparent}.env-flap{position:absolute;z-index:3;top:45px;left:0;width:0;height:0;border-left:235px solid transparent;border-right:235px solid transparent;border-top:160px solid #c16b8b;transform-origin:top;transition:transform .65s}.env-stamp{position:absolute;z-index:4;bottom:73px;left:calc(50% - 19px);width:38px;height:38px;background:#f2c4ce;color:#7c3454;border-radius:50%;display:grid;place-items:center;font-size:20px;transition:.4s}.envelope.open .env-flap{transform:rotateX(180deg);z-index:0}.envelope.open .letter-paper{transform:translateY(-120px)}.envelope.open .env-stamp{opacity:0}
+.letter-reveal{display:none;max-width:760px;margin:45px auto 0;padding:45px 55px;background:#fff1e9;color:#5b2b43;position:relative;box-shadow:0 25px 65px #0004}.letter-reveal.show{display:block;animation:fadeUp .6s}.letter-reveal .script{margin:0;color:#b15f80}.letter-reveal h3{font-family:"Cormorant Garamond",serif;font-size:38px;margin:5px 0 20px}.letter-reveal p:not(.script){font-family:"Cormorant Garamond",serif;font-size:19px;line-height:1.55}.letter-sign{text-align:right;font-family:"Cormorant Garamond",serif;font-size:22px;font-style:italic;margin-top:25px}.letter-sign span{color:#c55d80}.close-letter{position:absolute;right:15px;top:10px;border:0;background:none;font-size:28px;color:#87506a;cursor:pointer}
+.gallery-section{background:#f7e8e7;color:#4c2438}.gallery-section .section-tag{color:#a96c83}.section-heading{text-align:center;max-width:700px;margin:0 auto 35px}.section-heading .script{margin:0 0 8px;color:#b56e88}.section-heading h2{font-size:clamp(43px,6vw,70px);margin-bottom:10px}.gallery-section .muted{color:#997d8a}.photo-tools{display:flex;justify-content:center;align-items:center;gap:18px;flex-wrap:wrap;margin:35px 0 28px}.upload-btn{background:#4d2039;color:#fff0f2;padding:13px 20px;font-size:10px;letter-spacing:1px;text-transform:uppercase;cursor:pointer}.upload-note{font-size:10px;color:#997d8a}#photoUpload{display:none}.photo-grid{max-width:1000px;margin:auto;display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:15px}.photo-slot{height:250px;background:linear-gradient(145deg,#ead0d2,#f2dfe0);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;color:#8b536d;cursor:pointer;border:1px solid #e4c7ce}.photo-slot.photo-large{height:310px;grid-row:span 2}.photo-slot img{position:absolute;width:100%;height:100%;object-fit:cover;inset:0}.photo-placeholder{font-family:"Cormorant Garamond",serif;font-size:60px;opacity:.7}.photo-slot b{font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:500}.photo-slot small{font-size:9px;margin-top:7px}.gallery-footnote{text-align:center;color:#987f8b;font-size:10px;margin:25px auto 0;max-width:650px;line-height:1.7}
+.promise-section{background:#211321}.promise-card{max-width:760px;margin:auto;text-align:center;padding:65px 25px;border:1px solid #8f536b55;position:relative;background:radial-gradient(ellipse at 50% 50%,#482039,#211321 70%)}.promise-number{font-family:"Cormorant Garamond",serif;font-size:72px;color:#d58aa3;line-height:1}.promise-card .script{margin:8px 0 15px}.promise-card h2{font-family:"Cormorant Garamond",serif;font-size:clamp(47px,7vw,76px);font-weight:500;line-height:.9;margin:0}.promise-card>p:not(.script){color:#c1aab7;font-family:"Cormorant Garamond",serif;font-size:19px;line-height:1.5;max-width:440px;margin:25px auto}.promise-bottom{font-size:8px;letter-spacing:4px;color:#c18aa0;margin-top:35px}.promise-bottom span{color:var(--rose);margin:0 10px}
+.cake-section{background:#f5e4e5;color:#4c2438;text-align:center}.cake-section .section-tag{color:#a96c83}.cake-section .section-heading{margin-bottom:15px}.cake-section .section-heading .muted{color:#997d8a}.cake-wrap{height:300px;display:grid;place-items:center}.cake{width:270px;height:220px;position:relative;cursor:pointer;transition:.35s;filter:drop-shadow(0 18px 15px #8b526033)}.cake:hover{transform:translateY(-5px) scale(1.02)}.cake-plate{position:absolute;bottom:15px;left:0;width:270px;height:28px;background:linear-gradient(#fff,#d9c5c7);border-radius:50%;box-shadow:0 8px 10px #70405020}.cake-side{position:absolute;bottom:37px;left:25px;width:220px;height:100px;background:linear-gradient(90deg,#a94767,#e78ca5 48%,#b95474);border-radius:10px 10px 20px 20px;overflow:hidden;border-bottom:9px solid #f9cbd2}.cake-side:before{content:"";position:absolute;top:0;left:0;width:100%;height:17px;background:#fff0e9}.icing-drip{position:absolute;z-index:2;top:12px;width:20px;height:25px;background:#fff0e9;border-radius:0 0 12px 12px}.drip-a{left:35px;height:29px}.drip-b{left:105px;height:18px}.drip-c{right:30px;height:30px}.cake-top{position:absolute;z-index:2;top:62px;left:25px;width:220px;height:42px;border-radius:50%;background:#fff3eb;border:3px solid #f1c2cc;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#a44869;font-size:8px;letter-spacing:2px}.cake-top b{font-family:"Cormorant Garamond",serif;font-size:20px;letter-spacing:3px}.cake-top small{font-size:7px;color:#df7796}.cake-berries{position:absolute;bottom:18px;left:70px;color:#ffd8df;font-size:12px}.candle{position:absolute;z-index:4;top:20px;width:9px;height:48px;background:repeating-linear-gradient(135deg,#fff 0 6px,#e68ba5 6px 11px);border-radius:3px}.candle-one{left:85px}.candle-two{left:130px;top:7px}.candle-three{left:175px}.candle i{position:absolute;width:14px;height:19px;background:#ffbd55;border-radius:60% 40% 60% 40%;left:-2px;top:-18px;transform:rotate(45deg);box-shadow:0 0 17px #ffb64c;animation:flicker .45s infinite alternate}.cake-cut{position:absolute;z-index:5;top:83px;left:132px;width:4px;height:110px;background:#742c4a;opacity:0;transform:rotate(12deg)}.cake.cut .cake-cut{opacity:.8}.cake.cut .candle i{opacity:0}.cake.cut{transform:rotate(-2deg) scale(1.04)}.cake-button{margin-top:0}.cake-message{font-family:"Cormorant Garamond",serif;font-size:20px;color:#9c526d;min-height:30px}
+.final-section{text-align:center;background:radial-gradient(ellipse at 50% 25%,#52213d,#211321 65%,#170d17)}.final-spark{font-size:35px;color:#e9a9bd;margin-bottom:15px}.final-section .script{margin:0 0 14px}.final-section h2{font-size:clamp(60px,9vw,100px);margin-bottom:25px}.final-section>p:not(.script){font-family:"Cormorant Garamond",serif;font-size:22px;line-height:1.45;color:#d3bdc9}.hug-button{margin-top:28px;background:transparent;border:1px solid #d48aa5;color:#f6dce4;padding:15px 24px;cursor:pointer;font-size:10px;letter-spacing:1px;text-transform:uppercase}.hug-button span{color:var(--rose);margin-left:10px}.hug-button:hover{background:#ffffff10}.hug-message{min-height:25px;color:#f1a8bd;font-family:"Cormorant Garamond",serif;font-size:22px;margin-top:15px}.final-sign{font-family:"Cormorant Garamond",serif;font-style:italic;color:#b990a4;font-size:20px;margin-top:55px}.final-sign span{color:var(--rose)}footer{text-align:center;padding:25px;font-size:8px;letter-spacing:3px;color:#947489;border-top:1px solid #ffffff10}footer span{color:var(--rose)}
+.balloon{position:fixed;bottom:-120px;width:42px;height:54px;border-radius:50% 50% 45% 45%;z-index:60;pointer-events:none;animation:rise 6s ease-in forwards;box-shadow:inset -7px -5px #00000012}.balloon:after{content:"";position:absolute;left:20px;bottom:-20px;width:1px;height:22px;background:#c79bab}.confetti{position:fixed;top:-15px;width:8px;height:13px;z-index:61;pointer-events:none;animation:fall 3.5s linear forwards}.heart-float{position:fixed;bottom:-25px;z-index:4;color:#e88eaa;pointer-events:none;animation:heartRise 7s linear forwards}
+@keyframes rise{to{transform:translateY(-120vh) rotate(15deg);opacity:.1}}@keyframes fall{to{transform:translateY(110vh) rotate(700deg);opacity:0}}@keyframes heartRise{to{transform:translateY(-110vh) rotate(30deg);opacity:0}}@keyframes flicker{to{transform:rotate(35deg) scale(.85);opacity:.8}}@keyframes fadeUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+@media(max-width:700px){.nav{height:64px;padding:0 20px}.nav-note{display:none}.hero{min-height:690px}.hero h1{letter-spacing:-2px}.hero-copy{font-size:19px}.hero-orbit{width:390px;height:390px}.orbit-two{width:500px;height:500px}.side-note{display:none}.section-pad{padding:80px 22px}.letter-layout{grid-template-columns:1fr;gap:35px}.letter-intro{text-align:center}.seal{margin:28px auto 0}.envelope{width:min(100%,380px);height:280px}.env-front{border-left-width:190px;border-right-width:190px;border-top-width:140px}.env-flap{border-left-width:190px;border-right-width:190px;border-top-width:140px}.letter-paper{height:220px}.photo-grid{grid-template-columns:1fr 1fr}.photo-slot,.photo-slot.photo-large{height:210px;grid-row:auto}.photo-slot.photo-large{grid-column:span 2;height:260px}.letter-reveal{padding:35px 24px}.letter-reveal p:not(.script){font-size:17px}.promise-card{padding:55px 18px}.cake{transform:scale(.9)}.cake:hover{transform:scale(.92)}}
+
+.permanent-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 45px;
+}
+
+.photo-card {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    min-width: 0;
+    aspect-ratio: 4 / 5;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    background: #291522;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.22);
+}
+
+.photo-card.photo-large {
+    grid-column: span 2;
+    aspect-ratio: 8 / 5;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.photo-card:hover img {
+    transform: scale(1.06);
+}
+
+.photo-card figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 35px 15px 15px;
+    color: #fff;
+    font-size: 14px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.75));
+}
+
+@media (max-width: 700px) {
+    .permanent-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .photo-card.photo-large {
+        grid-column: span 2;
+    }
+
+    .photo-card figcaption {
+        font-size: 12px;
+    }
+}
+
+/* ROMANTIC PROMISE SECTION */
+
+.promise-section {
+    position: relative;
+    padding: 110px 20px;
+    background:
+        radial-gradient(ellipse at center, rgba(117, 35, 75, 0.20), transparent 65%),
+        #170b16;
+    overflow: hidden;
+}
+
+.promise-card {
+    position: relative;
+    isolation: isolate;
+    max-width: 850px;
+    margin: auto;
+    padding: 85px 55px;
+    text-align: center;
+    overflow: hidden;
+    border: 1px solid rgba(231, 174, 185, 0.28);
+    border-radius: 5px;
+    background:
+        linear-gradient(145deg, rgba(100, 37, 65, 0.72), rgba(35, 13, 30, 0.96));
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.35),
+        inset 0 0 60px rgba(231, 174, 185, 0.04);
+}
+
+.promise-glow {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    top: -180px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(232, 126, 159, 0.15);
+    filter: blur(90px);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.promise-number {
+    color: #e8a5b8;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 65px;
+    line-height: 1;
+    margin-bottom: 22px;
+}
+
+.promise-card .script {
+    color: #e8a5b8;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.promise-card h2 {
+    color: #fff3ef;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 6vw, 66px);
+    font-weight: 500;
+    line-height: 1.08;
+    margin-bottom: 22px;
+}
+
+.promise-card h2 em {
+    color: #e9a3b6;
+    font-weight: 500;
+}
+
+.promise-heart {
+    color: #e995ad;
+    font-size: 25px;
+    margin: 25px 0;
+    animation: promiseHeartbeat 1.6s ease-in-out infinite;
+}
+
+.promise-message {
+    max-width: 570px;
+    margin: 0 auto 35px;
+    color: #e5cbd4;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.promise-list {
+    max-width: 490px;
+    margin: 0 auto 40px;
+    text-align: left;
+    display: grid;
+    gap: 16px;
+}
+
+.promise-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    color: #f4e2e7;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.promise-item span {
+    color: #e9a3b6;
+    font-size: 22px;
+}
+
+.promise-bottom {
+    padding-top: 28px;
+    border-top: 1px solid rgba(231, 174, 185, 0.25);
+    color: #e8a5b8;
+    font-size: 11px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.promise-bottom span {
+    color: #f3a0b7;
+    margin: 0 8px;
+}
+
+.promise-signature {
+    margin-top: 24px;
+    color: #f4dce4;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    font-style: italic;
+}
+
+@keyframes promiseHeartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.22);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .promise-section {
+        padding: 75px 16px;
+    }
+
+    .promise-card {
+        padding: 60px 23px;
+    }
+
+    .promise-number {
+        font-size: 52px;
+    }
+
+    .promise-card .script {
+        font-size: 23px;
+    }
+
+    .promise-card h2 {
+        font-size: 43px;
+    }
+
+    .promise-message {
+        font-size: 13px;
+    }
+
+    .promise-item {
+        font-size: 13px;
+    }
+
+    .promise-bottom {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+}
+
+/* ===== FINAL BIRTHDAY ENDING SECTION ===== */
+
+.final-section {
+    position: relative;
+    overflow: hidden;
+    min-height: 720px;
+    padding: 110px 20px 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        radial-gradient(ellipse at 50% 45%, rgba(125, 35, 83, 0.24), transparent 55%),
+        linear-gradient(180deg, #170b16 0%, #210d20 55%, #170b16 100%);
+}
+
+.final-glow {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: rgba(225, 91, 145, 0.12);
+    filter: blur(100px);
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.final-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 760px;
+    margin: auto;
+}
+
+.final-spark {
+    color: #e8b7c9;
+    font-size: 34px;
+    margin-bottom: 22px;
+    animation: finalSpark 3s ease-in-out infinite;
+}
+
+.final-section .script {
+    color: #d9a6bd;
+    font-size: 22px;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+}
+
+.final-heart {
+    color: #e77ba7;
+    font-size: 35px;
+    margin: 15px 0 22px;
+    animation: finalHeartbeat 1.5s ease-in-out infinite;
+    text-shadow: 0 0 25px rgba(231, 123, 167, 0.6);
+}
+
+.final-section h2 {
+    color: #fff0f5;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 7vw, 78px);
+    font-weight: 500;
+    line-height: 1.08;
+    margin: 0 0 28px;
+}
+
+.final-section h2 em {
+    color: #e8a1bf;
+    font-style: italic;
+}
+
+.final-message {
+    max-width: 570px;
+    margin: 0 auto 28px;
+    color: #cbb9c7;
+    font-size: 15px;
+    line-height: 2;
+    font-weight: 300;
+}
+
+.birthday-wish {
+    color: #f0c6d8;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    letter-spacing: 1px;
+    margin: 25px 0 35px;
+}
+
+.birthday-wish span {
+    color: #e77ba7;
+    padding: 0 10px;
+}
+
+.hug-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    padding: 17px 29px;
+    border: 1px solid rgba(255, 190, 215, 0.55);
+    border-radius: 50px;
+    background: linear-gradient(135deg, #a83d70, #773052);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    box-shadow: 0 10px 35px rgba(168, 61, 112, 0.25);
+    transition: all 0.3s ease;
+}
+
+.hug-button:hover {
+    transform: translateY(-4px);
+    background: linear-gradient(135deg, #c35488, #913d67);
+    box-shadow: 0 15px 40px rgba(207, 91, 145, 0.35);
+}
+
+.hug-icon {
+    font-size: 21px;
+}
+
+.hug-arrow {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.hug-button:hover .hug-arrow {
+    transform: translateX(5px);
+}
+
+.hug-message {
+    min-height: 35px;
+    margin-top: 22px;
+    color: #f0b8d0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-style: italic;
+}
+
+.final-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: #d984a9;
+    margin: 35px auto 25px;
+    font-size: 15px;
+}
+
+.final-divider span {
+    width: 65px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #9f5475);
+}
+
+.final-divider span:last-child {
+    transform: rotate(180deg);
+}
+
+.final-sign {
+    color: #bba8b8;
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 2;
+}
+
+.final-sign strong {
+    display: block;
+    color: #e8b0c9;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.final-bottom-text {
+    position: absolute;
+    bottom: 22px;
+    left: 0;
+    width: 100%;
+    color: rgba(220, 166, 192, 0.28);
+    font-size: 9px;
+    letter-spacing: 4px;
+}
+
+@keyframes finalHeartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes finalSpark {
+    0%, 100% {
+        opacity: 0.6;
+        transform: rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: rotate(20deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .final-section {
+        min-height: 680px;
+        padding: 85px 22px 75px;
+    }
+
+    .final-section .script {
+        font-size: 19px;
+    }
+
+    .final-section h2 {
+        font-size: 49px;
+    }
+
+    .final-message {
+        font-size: 13px;
+        line-height: 1.9;
+    }
+
+    .birthday-wish {
+        font-size: 20px;
+    }
+
+    .hug-button {
+        padding: 15px 20px;
+        gap: 9px;
+        font-size: 12px;
+    }
+
+    .final-bottom-text {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+}
